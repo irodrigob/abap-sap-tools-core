@@ -24,6 +24,12 @@
      <LANGU>E</LANGU>
      <DESCRIPT>Listado de aplicaciones disponibles</DESCRIPT>
     </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_SPT_APPS_BASE</CLSNAME>
+     <CMPNAME>SET_APP</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Establece la aplicación</DESCRIPT>
+    </SEOCOMPOTX>
    </DESCRIPTIONS>
   </asx:values>
  </asx:abap>

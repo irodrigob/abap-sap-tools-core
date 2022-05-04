@@ -10,6 +10,14 @@
     <STATE>1</STATE>
     <UNICODE>X</UNICODE>
    </VSEOINTERF>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>ZIF_SPT_CORE_APP</CLSNAME>
+     <CMPNAME>GET_APP_TYPE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Devuelve el tipo de aplicación</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
   </asx:values>
  </asx:abap>
 </abapGit>
