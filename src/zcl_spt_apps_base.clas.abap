@@ -8,10 +8,11 @@ CLASS zcl_spt_apps_base DEFINITION
 
     TYPES:
       BEGIN OF ts_apps,
-        app      TYPE zif_spt_core_data=>tv_app,
-        app_desc TYPE string,
-        service  TYPE string,
-        ref_app  TYPE REF TO zif_spt_core_app,
+        app           TYPE zif_spt_core_data=>tv_app,
+        app_desc      TYPE string,
+        service       TYPE string,
+        frontend_page TYPE string,
+        ref_app       TYPE REF TO zif_spt_core_app,
       END OF ts_apps .
     TYPES:
       tt_apps TYPE STANDARD TABLE OF ts_apps WITH DEFAULT KEY .
@@ -63,14 +64,11 @@ CLASS zcl_spt_apps_base IMPLEMENTATION.
         TRY.
             CREATE OBJECT lo_app TYPE (<ls_classlist>-clsname).
 
-            lo_app->get_app_type( IMPORTING ev_app      = DATA(lv_app)
-                                            ev_app_desc = DATA(lv_app_desc)
-                                            ev_service = data(lv_service) ).
+            lo_app->get_app_type( IMPORTING es_app = DATA(ls_app) ).
 
-            INSERT VALUE #( app = lv_app
-                            app_desc = lv_app_desc
-                            ref_app = lo_app
-                            service = lv_service ) INTO TABLE et_app_list.
+            INSERT CORRESPONDING #( ls_app ) INTO TABLE et_app_list ASSIGNING FIELD-SYMBOL(<ls_app_list>).
+            <ls_app_list>-ref_app = lo_app.
+
           CATCH cx_root.
         ENDTRY.
       ENDLOOP.
